@@ -1,1 +1,18 @@
+name: Run Shell Script Example
 
+on: [push]
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Give execute permission
+        run: chmod +x ./test2/scripts/setup.sh
+
+      - name: Run a shell script
+        run: |
+          echo "Hello from GitHub Actions"
+          ./test2/scripts/setup.sh
